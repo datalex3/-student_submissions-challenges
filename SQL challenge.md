@@ -1,5 +1,5 @@
 
-/*Which customers are from the UK?*/
+**/*Which customers are from the UK?*/
 
 select customername from customers
 where country = 'UK';
@@ -15,7 +15,7 @@ Island Trading
 North/South
 Seven Seas Imports
 
-/*What is the name of the customer who has the most orders?*/
+**/*What is the name of the customer who has the most orders?*/
 
 SELECT customername, Count(*) AS CountVal FROM orders
 JOIN customers ON customers.customerid = orders.customerid
@@ -28,7 +28,7 @@ Number of Records: 1
 CustomerName	CountVal
 Ernst Handel	10
 
-/*Which supplier has the highest average product price?*/
+**/*Which supplier has the highest average product price?*/
 
 SELECT suppliername, avg(price) AS averagePrice FROM suppliers
 JOIN products ON Products.supplierid = suppliers.supplierid
@@ -41,7 +41,7 @@ Number of Records: 1
 SupplierName	averagePrice
 Aux joyeux ecclésiastiques	140.75
 
-/*How many different countries are all the customers from? (Hint: consider DISTINCT.)*/
+**/*How many different countries are all the customers from? (Hint: consider DISTINCT.)*/
 
 select count(distinct country) from customers
 
@@ -50,7 +50,7 @@ Number of Records: 1
 count(distinct country)
 21
 
-/*What category appears in the most orders?*/
+**/*What category appears in the most orders?*/
 
 SELECT CategoryName, count(*) as countval FROM products
 JOIN Categories ON Products.CategoryID = Categories.CategoryID
@@ -64,7 +64,7 @@ Number of Records: 1
 CategoryName	countval
 Dairy Products	100
 
-/*What was the total cost for each order?*/
+**/*What was the total cost for each order?*/
 
 select orders.orderid ,quantity*price as totalcost from orders 
 join orderdetails on orderdetails.orderid = orders.orderid join
@@ -82,7 +82,7 @@ OrderID	totalcost
 10252	1360
 
 
-/*Which employee made the most sales (by total cost)?*/
+**/*Which employee made the most sales (by total cost)?*/
 
 select employees.employeeid,lastname,firstname, quantity*price as totalcost from employees
 join orders on orders.employeeid = employees.employeeid
@@ -103,7 +103,7 @@ EmployeeID	LastName	FirstName	totalcost
 8	Callahan	Laura	547.2
 9	Dodsworth	Anne	495
 
-/*Which employees have BS degrees? (Hint: look at the LIKE operator.)*/
+**/*Which employees have BS degrees? (Hint: look at the LIKE operator.)*/
 
 select * from employees
 where notes  LIKE '%bs%'
@@ -114,7 +114,7 @@ Number of Records: 2
 3	Leverling	Janet	1963-08-30	EmpID3.pic
 5	Buchanan	Steven	1955-03-04	EmpID5.pic
 
-/*Which supplier of three or more products has the highest average product price? (Hint: look at the HAVING operator.)*/
+**/*Which supplier of three or more products has the highest average product price? (Hint: look at the HAVING operator.)*/
 
 select suppliername , avg(price) as avgPrice, count(productid) as totalProducts from products
 join suppliers on suppliers.supplierid = products.supplierid
